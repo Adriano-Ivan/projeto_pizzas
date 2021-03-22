@@ -1,5 +1,6 @@
 let modalQt = 1;
 let modalKey = 0;
+let cart = [];
 
 const c = (elemento) => document.querySelector(elemento);
 const cs = (elemento) => document.querySelectorAll(elemento);
@@ -66,4 +67,30 @@ c(".pizzaInfo--qtmenos").addEventListener("click", () => {
 c(".pizzaInfo--qtmais").addEventListener("click", () => {
     modalQt++;
     c(".pizzaInfo--qt").innerHTML = modalQt;
+});
+
+cs(".pizzaInfo--size").forEach((size, indexSize) => {
+    size.addEventListener("click", () => {
+        c(".pizzaInfo--size.selected").classList.remove("selected");
+        size.classList.add("selected");
+    })
+});
+
+c(".pizzaInfo--addButton").addEventListener("click", () => {
+    let size = parseInt(c(".pizzaInfo--size.selected").getAttribute("data-key"));
+
+    let identifier = pizzaJson[modalKey].id+"@"+size;
+
+    let key = cart.findIndex((item) => item.identifier == identifier);
+
+    if(key > -1) {
+        cart[key].qt += modalQt;
+    } else {
+        cart.push({
+            identifier,
+            id:pizzaJson[modalKey].id,
+            size,
+            qt:modalQt
+        });
+    }
 });
