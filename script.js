@@ -42,3 +42,14 @@ pizzaJson.map((item, index) => {
 
     c(".pizza-area").append(pizzaItem);
 });
+
+function closeModal() {
+    c(".pizzaWindowArea").style.opacity = 0;
+    setTimeout(() => {
+        c(".pizzaWindowArea").style.display = "none";
+    }, 200)
+}
+
+cs(".pizzaInfo--cancelButton, .pizzaInfo--cancelMobileButton").forEach((button) => {
+    button.addEventListener("click", closeModal);
+});
