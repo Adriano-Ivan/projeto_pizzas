@@ -1,4 +1,5 @@
 let modalQt = 1;
+let modalKey = 0;
 
 const c = (elemento) => document.querySelector(elemento);
 const cs = (elemento) => document.querySelectorAll(elemento);
@@ -16,6 +17,7 @@ pizzaJson.map((item, index) => {
         e.preventDefault();
         let key = e.target.closest(".pizza-item").getAttribute("data-key");
         modalQt = 1;
+        modalKey = key;
 
         c(".pizzaBig img").src = pizzaJson[key].img;
         c(".pizzaInfo h1").innerHTML = pizzaJson[key].name;
@@ -52,4 +54,16 @@ function closeModal() {
 
 cs(".pizzaInfo--cancelButton, .pizzaInfo--cancelMobileButton").forEach((button) => {
     button.addEventListener("click", closeModal);
+});
+
+c(".pizzaInfo--qtmenos").addEventListener("click", () => {
+    if(modalQt > 1) {
+        modalQt--;
+        c(".pizzaInfo--qt").innerHTML = modalQt;
+    }
+});
+
+c(".pizzaInfo--qtmais").addEventListener("click", () => {
+    modalQt++;
+    c(".pizzaInfo--qt").innerHTML = modalQt;
 });
