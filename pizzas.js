@@ -11,5 +11,5 @@ let pizzaJson = [
     {id:6, name:"Moda da casa", img:"img/pizza6.png", price:18.55, sizes:["320g","530g","860g"],
     description:"A mais famosa e experimentada !"},
     {id:7, name:"Chocolate", img:"img/pizza7.png", price:22.36, sizes:["320g","530g","860g"],
-    description:"O chocolate é caseiro e da mais caprichada têcnica, hem !"}
+    description:"O chocolate é caseiro e da mais caprichada técnica, hem !"}
 ]
