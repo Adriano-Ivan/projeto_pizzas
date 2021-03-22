@@ -93,4 +93,16 @@ c(".pizzaInfo--addButton").addEventListener("click", () => {
             qt:modalQt
         });
     }
+
+    closeModal();
 });
+
+c(".menu-opener").addEventListener("click", () => {
+    if(cart.length > 0) {
+        c("aside").style.left = "0";
+    }
+});
+
+c(".menu-closer").addEventListener("click", () => {
+    c("aside").style.left = "100vw";
+})
